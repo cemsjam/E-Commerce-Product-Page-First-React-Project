@@ -1,0 +1,99 @@
+.shopping-cart {
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%, -5%);
+  max-width: 21.875rem;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 10px 32px 2px rgba(0, 0, 0, 0.16);
+  z-index: var(--cart-zIndex);
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0ms ease var(--transition-base-timing),
+    opacity var(--transition-base-timing) ease,
+    transform var(--transition-base-timing) ease;
+}
+.show-cart {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0ms ease, opacity var(--transition-base-timing) ease,
+    transform var(--transition-base-timing) ease;
+  transform: translate(-50%, 0);
+}
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+.empty-cart p {
+  color: var(--clr-dark-grayish-blue);
+  font-weight: var(--fw-bold);
+}
+.shopping-cart__title {
+  font-size: 0.8rem;
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--clr-light-grayish-blue);
+}
+.shopping-cart__body {
+  padding: 1.2rem;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1.3rem;
+}
+.cart-item__img {
+  width: 3rem;
+  border-radius: 4px;
+}
+.cart-item__info {
+  color: var(--clr-grayish-blue);
+  letter-spacing: 0.4px;
+}
+.cart-item__fullprice,
+.cart-item strong {
+  color: var(--black);
+}
+.cart-item strong {
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+.checkout-btn {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  text-align: center;
+  color: var(--white);
+  font-weight: var(--fw-bold);
+  background-color: var(--clr-p-orange);
+  border-radius: 8px;
+  transition: var(--transition-base-timing) ease;
+}
+.checkout-btn:hover,
+.checkout-btn:focus {
+  background-color: hsla(var(--clr-primary), 0.8);
+}
+.cart-delete-btn {
+  transition: var(--transition-base-timing) ease;
+}
+.cart-delete-btn:hover,
+.cart-delete-btn:focus {
+  color: crimson;
+}
+@media (min-width: 36em) {
+  .shopping-cart {
+    width: 21.875rem;
+    top: 5.2rem;
+    left: unset;
+    right: 0;
+    transform: translate(0, -10%);
+  }
+  .show-cart {
+    transform: translate(0);
+  }
+}

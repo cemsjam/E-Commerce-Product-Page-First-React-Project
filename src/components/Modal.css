@@ -1,0 +1,81 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 360px;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  gap: 0.5rem;
+  z-index: var(--modal-zIndex);
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: visibility 0ms ease var(--transition-base-timing),
+    opacity var(--transition-base-timing),
+    transform var(--transition-base-timing);
+}
+.show-modal {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
+  transform: scale(1);
+  transition: visibility 0ms, opacity var(--transition-base-timing),
+    transform var(--transition-base-timing);
+}
+.modal-close-btn {
+  margin-left: auto;
+  font-size: 1.25rem;
+  transition: var(--transition-base-timing) ease;
+}
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  color: var(--clr-p-orange);
+}
+.modal .main-img {
+  max-height: 350px;
+  position: relative;
+}
+.modal .product-item__mini-images {
+  margin-top: 1.5rem;
+}
+.modal .main-img img {
+  border-radius: var(--br-main);
+}
+.modal .main-img button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prev,
+.next {
+  width: 2.5rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: var(--white);
+  font-size: 1.3rem;
+}
+.prev svg,
+.next svg {
+  transition: var(--transition-base-timing) ease;
+}
+.prev:hover,
+.prev:focus-visible,
+.next:hover,
+.next:focus-visible {
+  color: var(--clr-p-orange);
+}
+
+.prev {
+  left: -1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.next {
+  right: -1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
