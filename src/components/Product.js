@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
-import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoCartOutline } from "react-icons/io5";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import "./Product.css";
@@ -9,14 +9,18 @@ import Modal from "./Modal";
 import product from "./data/data";
 
 const Product = ({ setCartItem, cartItem }) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [imgIndex, setImgIndex] = useState(0);
   const { name, price, discount, images, id } = product;
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const addCartBtn = useRef(null);
+  if (count <= 0) {
+    return setCount(1);
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (count <= 0) {
-      setCartItem(null);
+      return;
     } else {
       const newCartItem = {
         ...product,
@@ -25,7 +29,7 @@ const Product = ({ setCartItem, cartItem }) => {
       };
       setCartItem([newCartItem]);
     }
-    setCount(0);
+    setCount(1);
   };
   const openModal = () => {
     setIsModalOpen(true);
@@ -48,6 +52,18 @@ const Product = ({ setCartItem, cartItem }) => {
     }
     return imgIndex;
   };
+  const handleRippleEffect = (e) => {
+    let x = e.clientX - e.target.offsetLeft;
+    let y = e.clientY - e.target.offsetTop;
+    let ripple = document.createElement("span");
+    ripple.classList.add("ripple-btn");
+    ripple.style.top = y + "px";
+    ripple.style.left = x + "px";
+    addCartBtn.current.appendChild(ripple);
+    setTimeout(() => {
+      ripple.remove();
+    }, 700);
+  };
   return (
     <main className="main-content">
       <div className="product-item">
@@ -56,11 +72,23 @@ const Product = ({ setCartItem, cartItem }) => {
             <FiChevronLeft />
           </button>
           <button type="button" className="main-img-btn" onClick={openModal}>
-            <img
+            {/* <img
               src={images[imgIndex]}
               alt={cartItem[0].name}
               className="main-img"
-            />
+            /> */}
+            {product.images.map((item, index) => {
+              return (
+                <img
+                  key={index}
+                  src={item}
+                  alt="shoe product"
+                  className={`${
+                    imgIndex === index ? "slide-images active" : "slide-images"
+                  }`}
+                />
+              );
+            })}
           </button>
           <button className="next" onClick={handleNext}>
             <FiChevronRight />
@@ -122,8 +150,13 @@ const Product = ({ setCartItem, cartItem }) => {
                 <AiOutlinePlus className="count-icons" />
               </button>
             </div>
-            <button type="submit" className="body-cta-btn">
-              <AiOutlineShoppingCart />
+            <button
+              type="submit"
+              className="body-cta-btn"
+              ref={addCartBtn}
+              onClick={(e) => handleRippleEffect(e)}
+            >
+              <IoCartOutline />
               Add To Cart
             </button>
           </form>

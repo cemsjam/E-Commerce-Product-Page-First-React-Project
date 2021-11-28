@@ -43,10 +43,21 @@ const Modal = ({ isModalOpen, setIsModalOpen }) => {
         <FaTimes />
       </button>
       <div className="main-img">
+        {images.map((image, index) => {
+          return (
+            <img
+              src={image}
+              alt="shoe product"
+              key={index}
+              className={`${
+                imgIndex === index ? "slide-images active" : "slide-images"
+              }`}
+            />
+          );
+        })}
         <button className="prev" onClick={handlePrev}>
           <FiChevronLeft />
         </button>
-        <img src={images[imgIndex]} alt="" />
         <button className="next" onClick={handleNext}>
           <FiChevronRight />
         </button>

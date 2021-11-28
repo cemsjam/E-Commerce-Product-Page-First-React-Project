@@ -27,6 +27,7 @@ html {
   --black: hsl(0, 0%, 0%);
   --black-20op: hsla(0, 0%, 0%, 0.2);
   --transition-base-timing: 0.3s;
+  --overlay-zIndex: 400;
   --nav-zIndex: 500;
   --cart-zIndex: 600;
   --modal-zIndex: 700;
@@ -38,6 +39,7 @@ body {
   font-family: var(--base-ff);
   font-size: var(--base-font-size);
   line-height: var(--base-line-height);
+  background-color: var(--white);
 }
 body::after {
   content: "";
@@ -49,6 +51,7 @@ body::after {
   background-color: rgba(0, 0, 0, 0.8);
   visibility: var(--visibility, hidden);
   opacity: var(--opacity, 0);
+  z-index: var(--overlay-zIndex);
 }
 .overlay-open {
   --visibility: visible;

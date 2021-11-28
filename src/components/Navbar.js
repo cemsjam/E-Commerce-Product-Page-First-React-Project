@@ -85,9 +85,15 @@ const Navbar = ({ cartItem, setCartItem }) => {
           }}
         >
           <AiOutlineShoppingCart />
-          {cartItem[0].amount > 0 && (
-            <span className="cart-count">{cartItem[0].amount}</span>
-          )}
+          <span
+            className={`${
+              cartItem[0].amount > 0
+                ? "cart-count show-cart-count "
+                : "cart-count"
+            }`}
+          >
+            {cartItem[0].amount}
+          </span>
         </button>
         <button className="avatar">
           <img src={avatar} alt="profile pic" className="avatar-img" />

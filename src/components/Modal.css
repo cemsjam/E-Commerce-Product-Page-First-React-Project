@@ -29,14 +29,27 @@
   margin-left: auto;
   font-size: 1.25rem;
   transition: var(--transition-base-timing) ease;
+  color: var(--white);
 }
 .modal-close-btn:hover,
 .modal-close-btn:focus {
   color: var(--clr-p-orange);
 }
+.modal-close-btn:active {
+  transform: scale(0.9);
+}
 .modal .main-img {
-  max-height: 350px;
+  height: 350px;
+  aspect-ratio: 1;
   position: relative;
+}
+.modal .slide-images {
+  transform: scale(0.9);
+  transition: opacity 1s ease, transform 1s ease, visibility 0ms ease 1s;
+}
+.modal .active {
+  transform: scale(1);
+  transition: visibility 0ms ease, opacity 1s ease, transform 1s ease;
 }
 .modal .product-item__mini-images {
   margin-top: 1.5rem;
