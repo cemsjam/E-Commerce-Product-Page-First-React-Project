@@ -184,7 +184,6 @@ input[type="number"] {
   align-items: center;
   position: relative;
   min-width: 9.6rem;
-  max-width: 22rem;
   gap: 0.5rem;
   height: 100%;
   text-align: center;
