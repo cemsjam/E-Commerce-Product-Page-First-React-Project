@@ -72,11 +72,6 @@ const Product = ({ setCartItem, cartItem }) => {
             <FiChevronLeft />
           </button>
           <button type="button" className="main-img-btn" onClick={openModal}>
-            {/* <img
-              src={images[imgIndex]}
-              alt={cartItem[0].name}
-              className="main-img"
-            /> */}
             {product.images.map((item, index) => {
               return (
                 <img

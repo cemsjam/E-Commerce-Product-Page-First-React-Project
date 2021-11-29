@@ -12,7 +12,7 @@
   visibility: hidden;
   pointer-events: none;
   opacity: 0;
-  transform: scale(0.85);
+  transform: translateX(-70%) scale(0.6);
   transition: visibility 0ms ease var(--transition-base-timing),
     opacity var(--transition-base-timing),
     transform var(--transition-base-timing);
@@ -21,9 +21,9 @@
   visibility: visible;
   pointer-events: all;
   opacity: 1;
-  transform: scale(1);
+  transform: translateX(0) scale(1);
   transition: visibility 0ms, opacity var(--transition-base-timing),
-    transform var(--transition-base-timing);
+    transform 0.5s cubic-bezier(0.51, 0.92, 0.24, 1.3);
 }
 .modal-close-btn {
   margin-left: auto;
