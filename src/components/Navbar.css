@@ -177,7 +177,9 @@
   .logo-container {
     width: 7rem;
   }
-
+  .cart-profile-container {
+    gap: 0.8rem;
+  }
   .avatar {
     width: 2.5rem;
   }

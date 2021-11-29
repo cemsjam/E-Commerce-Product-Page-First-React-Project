@@ -15,9 +15,9 @@ const Navbar = ({ cartItem, setCartItem }) => {
     setIsNavbarOpen(true);
   };
   const closeNavBar = () => {
+    setIsNavbarOpen(false);
     document.body.classList.remove("overlay-open");
     document.body.classList.remove("no-scroll");
-    setIsNavbarOpen(false);
   };
 
   useLayoutEffect(() => {

@@ -54,6 +54,7 @@ body::after {
   visibility: var(--visibility, hidden);
   opacity: var(--opacity, 0);
   z-index: var(--overlay-zIndex);
+  transition: var(--transition-base-timing);
 }
 .overlay-open {
   --visibility: visible;
