@@ -11,10 +11,12 @@ const Navbar = ({ cartItem, setCartItem }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const openNavBar = () => {
     document.body.classList.add("overlay-open");
+    document.body.classList.add("no-scroll");
     setIsNavbarOpen(true);
   };
   const closeNavBar = () => {
     document.body.classList.remove("overlay-open");
+    document.body.classList.remove("no-scroll");
     setIsNavbarOpen(false);
   };
 
