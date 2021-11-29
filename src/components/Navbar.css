@@ -1,7 +1,7 @@
 .main-header {
   display: flex;
   align-items: center;
-  gap: 4vw;
+  gap: 4rem;
   height: 5.5rem;
   margin-left: var(--spacingX);
   margin-right: var(--spacingX);
@@ -11,7 +11,8 @@
   vertical-align: bottom;
 }
 .logo-container {
-  width: calc(7.5vw + 4rem);
+  width: calc(4vw + 5.5rem);
+  max-width: 12rem;
   flex-shrink: 0;
 }
 .logo {
@@ -20,7 +21,7 @@
 }
 .nav-links {
   display: flex;
-  gap: calc(2vw + 0.1rem);
+  gap: 1.6rem;
 }
 .nav-list-item {
   position: relative;
@@ -95,6 +96,7 @@
 }
 .avatar {
   width: calc(3.1vw + 0.7rem);
+  max-width: 2.5rem;
   aspect-ratio: 1;
   border: 2px solid transparent;
   border-radius: 50%;
