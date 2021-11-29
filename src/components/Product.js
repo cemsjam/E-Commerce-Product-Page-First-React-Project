@@ -31,10 +31,26 @@ const Product = ({ setCartItem, cartItem }) => {
     }
     setCount(1);
   };
+  const handleEscKey = (e) => {
+    if (e.keyCode === 27) {
+      closeModal();
+    } else {
+      return;
+    }
+  };
   const openModal = () => {
     setIsModalOpen(true);
     document.body.classList.add("overlay-open");
     document.body.classList.add("no-scroll");
+    window.addEventListener("resize", closeModal);
+    window.addEventListener("keydown", handleEscKey);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    document.body.classList.remove("overlay-open");
+    document.body.classList.remove("no-scroll");
+    window.removeEventListener("resize", closeModal);
+    window.removeEventListener("keydown", handleEscKey);
   };
   const handlePrev = () => {
     if (imgIndex <= 0) {
@@ -161,9 +177,7 @@ const Product = ({ setCartItem, cartItem }) => {
       <Modal
         product={product}
         isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        imgIndex={imgIndex}
-        setImgIndex={setImgIndex}
+        closeModal={closeModal}
       />
     </main>
   );

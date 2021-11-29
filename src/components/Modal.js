@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
 import product from "./data/data";
 import "./Modal.css";
-const Modal = ({ isModalOpen, setIsModalOpen }) => {
+const Modal = ({ isModalOpen, closeModal }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const { images, thumbnails } = product;
 
@@ -28,15 +28,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }) => {
     }
     return imgIndex;
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-    document.body.classList.remove("overlay-open");
-    document.body.classList.remove("no-scroll");
-  };
-  useEffect(() => {
-    window.addEventListener("resize", closeModal);
-    return () => window.removeEventListener("resize", closeModal);
-  }, []);
+
   return (
     <div className={`${isModalOpen ? "modal show-modal" : "modal"}`}>
       <button className="modal-close-btn" onClick={closeModal}>
